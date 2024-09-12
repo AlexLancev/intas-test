@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Nunito';
+    src:
+        url('../../public/fonts/nunito/Nunito-Bold.woff2') format('woff2'),
+        url('../../public/fonts/nunito/Nunito-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src:
+        url('../../public/fonts/nunito/Nunito-Regular.woff2') format('woff2'),
+        url('../../public/fonts/nunito/Nunito-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src:
+        url('../../public/fonts/rubik/Rubik-Regular.woff2') format('woff2'),
+        url('../../public/fonts/rubik/Rubik-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

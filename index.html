@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/index.css">
+  <title>Intas-test</title>
+</head>
+
+<body>
+  <main class="tests main">
+
+    <div class="container">
+
+      <div class="tests__inner">
+
+        <aside class="aside">
+          <button class="burger" type="button" id="burger">
+            <img class="burger__img" src="public/img/burger.svg" alt="" aria-hidden>
+          </button>
+          <ul class="tests-list" id="list">
+            <li class="tests-list__item">
+              <button class="test-list__btn" type="button" data-btn="planets">Планеты</button>
+            </li>
+            <li class="tests-list__item">
+              <button class="test-list__btn" type="button" data-btn="oceans">Океаны</button>
+            </li>
+            <li class="tests-list__item">
+              <button class="test-list__btn" type="button" data-btn="deserts">Пустыни</button>
+            </li>
+            <li class="tests-list__item">
+              <button class="test-list__btn" type="button" data-btn="continents">Континенты</button>
+            </li>
+            <li class="tests-list__item">
+              <button class="test-list__btn" type="button" data-btn="countries">Страны</button>
+            </li>
+          </ul>
+        </aside>
+
+        <div class="row">
+          <div class="scoreboard">
+            <button class="scoreboard__btn" type="button" data-action="stop">Выход</button>
+            <ul class="scoreboard__list">
+              <li class="scoreboard__list-item">
+                <button class="scoreboard__btn" type="button" data-action="reset">Сбросить все ответы</button>
+              </li>
+              <li class="scoreboard__list-item">
+                <span class="scoreboard__quantity" id="answer-count"></span>
+              </li>
+              <li class="scoreboard__list-item">
+                <span class="scoreboard__timer" id="timer"></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tests__view" id="view">
+            <span class="tests__select">Выберите тест из списка</span>
+          </div>
+
+        </div>
+
+        <div class="modal" id="modal">
+          <div class="modal__content">
+            <p class="modal__head">Вы уверены, что хотите выйти?</p>
+            <span class="modal__description">Все результаты будут сброшены</span>
+            <button class="modal__btn" type="button" data-action="confirm-exit">Выйти</button>
+            <button class="modal__btn" type="button" data-action="cancel-exit">Отмена</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
