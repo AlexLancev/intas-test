@@ -1,5 +1,7 @@
 import { stopTimer } from "./testTimer.js";
 import { clearElement } from "./utils/clearElement.js";
+import { bodyScroll } from "./utils/bodyScroll.js";
+import { deleteClass } from "./utils/deleteClass.js";
 
 export const showModal = () => {
   const modal = document.getElementById("modal");
@@ -13,7 +15,9 @@ export const showModal = () => {
   confirmButton.addEventListener("click", () => {
     const view = document.getElementById("view");
     
+    deleteClass();
     clearElement(view);
+    bodyScroll.unLock();
     
     const span = document.createElement("span");
     span.classList.add("tests__select");
@@ -29,5 +33,6 @@ export const showModal = () => {
 
   cancelButton.addEventListener("click", () => {
     modal.classList.remove("active");
+    bodyScroll.unLock();
   });
 };

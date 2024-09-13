@@ -1,22 +1,29 @@
 import { startTimer, stopTimer } from "./testTimer.js";
 import { showModal } from "./testModal.js";
 import { showTestResults } from "./testResults.js";
-
+import { bodyScroll } from "./utils/bodyScroll.js";
 import { clearElement } from "./utils/clearElement.js";
 
-export const showTestQuestions = (questions, testName) => {
+export const showTestQuestions = (questions, testName, currentName) => {
   const view = document.getElementById("view");
   const scoreboard = document.querySelector(".scoreboard");
+  const quizName = document.getElementById('quiz-name');
 
   clearElement(view);
 
+  quizName.textContent = currentName;
   scoreboard.classList.add("active");
 
   const answerCount = document.getElementById("answer-count");
   answerCount.textContent = `0/${questions.length}`;
 
-  const questionListBox = document.createElement("div");
+  const questionListBox = document.createElement("section");
   questionListBox.classList.add("questions-box");
+
+  const questionTitle = document.createElement("h2");
+  questionTitle.classList.add("questions-box__title", "visually-hidden");
+  questionTitle.textContent = "Список вопросов для викторины"
+  questionListBox.appendChild(questionTitle);
 
   const questionList = document.createElement("ul");
   questionList.classList.add("questions");
@@ -101,11 +108,12 @@ export const showTestQuestions = (questions, testName) => {
 
   document.querySelector('button[data-action="stop"]').addEventListener("click", () => {
     showModal();
+    bodyScroll.lock();
   });
 
   finishButton.addEventListener("click", () => {
-    // const arr = document.querySelectorAll('.scoreboard__btn');
-    // arr.forEach((btn) => btn.setAttribute('disabled', ""))
+    const arr = document.querySelectorAll('.scoreboard__btn');
+    arr.forEach((btn) => btn.setAttribute('disabled', ""));
     stopTimer();
     showTestResults({ data: questions }, testName);
   });

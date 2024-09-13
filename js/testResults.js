@@ -1,4 +1,5 @@
 import { clearElement } from "./utils/clearElement.js";
+import { deleteClass } from "./utils/deleteClass.js";
 
 let timer;
 
@@ -11,23 +12,13 @@ export const showTestResults = (test, testName) => {
 
   clearElement(view);
 
-  const results = document.createElement('div');
+  const results = document.createElement('section');
   results.classList.add('results');
 
   const title = document.createElement("h2");
   title.classList.add('results__title');
   title.textContent = "Тест завершён";
   results.appendChild(title);
-
-  const resultSpan = document.createElement("span");
-  resultSpan.classList.add('results__total');
-  resultSpan.textContent = `Вы ответили правильно на ${correctAnswersCount} из ${test.data.length} вопросов`;
-  results.appendChild(resultSpan);
-
-  const answerTitle = document.createElement("b");
-  answerTitle.classList.add('results__your-answers');
-  answerTitle.textContent = "Ваши ответы";
-  results.appendChild(answerTitle);
 
   const resultList = document.createElement("ul");
   resultList.classList.add('results__list');
@@ -37,12 +28,14 @@ export const showTestResults = (test, testName) => {
     const userAnswer = savedAnswers[index] || "Нет ответа";
     const isCorrect = userAnswer === correctAnswer;
 
-    if (isCorrect) correctAnswersCount++;
+    if (isCorrect) {
+      correctAnswersCount++;
+    }
 
     const listItem = document.createElement("li");
     listItem.classList.add('results__list-item');
 
-    const questionText = document.createElement("b");
+    const questionText = document.createElement("strong");
     questionText.classList.add('results__question');
     questionText.textContent = `Вопрос ${index + 1}: ${q.question}`;
     listItem.appendChild(questionText);
@@ -68,8 +61,19 @@ export const showTestResults = (test, testName) => {
     listItem.appendChild(userAnswerSpan);
 
     resultList.appendChild(listItem);
-    results.appendChild(resultList);
   });
+
+  const resultSpan = document.createElement("span");
+  resultSpan.classList.add('results__total');
+  resultSpan.textContent = `Вы ответили правильно на ${correctAnswersCount} из ${test.data.length} вопросов`;
+  results.appendChild(resultSpan);
+
+  const answerTitle = document.createElement("strong");
+  answerTitle.classList.add('results__your-answers');
+  answerTitle.textContent = "Ваши ответы";
+  results.appendChild(answerTitle);
+
+  results.appendChild(resultList);
 
   const restartButton = document.createElement("button");
   restartButton.classList.add('results__restart-btn');
@@ -124,11 +128,13 @@ export const showTestResults = (test, testName) => {
       }
     });
   });
-  
 
   restartButton.addEventListener("click", () => {
     const scoreboard = document.querySelector('.scoreboard');
     scoreboard.classList.remove('active');
+    const scoreboardArr = scoreboard.querySelectorAll('.scoreboard__btn');
+    scoreboardArr.forEach((btn) => btn.removeAttribute('disabled'));
+    deleteClass();
     localStorage.removeItem(testName);
     clearElement(view);
 

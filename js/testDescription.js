@@ -5,10 +5,10 @@ export const showTestDescription = (description) => {
 
   clearElement(view);
 
-  const descriptionDiv = document.createElement("div");
+  const descriptionDiv = document.createElement("section");
   descriptionDiv.classList.add("description");
 
-  const descriptionHead = document.createElement("p");
+  const descriptionHead = document.createElement("h2");
   descriptionHead.classList.add("description__head");
   descriptionHead.textContent = "Описание";
 

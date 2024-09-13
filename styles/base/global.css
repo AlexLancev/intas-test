@@ -2,10 +2,24 @@
 	--font-Nunito: "Nunito", sans-serif;
 	--font-Rubik: "Rubik", sans-serif;
 
-	--color-white: '#fafafa';
-	--color-black: '#263238';
-	--color-red: '#d32f2f';
-	--color-blue-grey: '#eceff1';
+	--color-hard-black: #000000;
+	--color-black: #263238;
+	--color-charcoal-gray: #424242;
+	--color-dark-blue: #34515e;
+	--color-brown: #707070;
+	--color-medium-silver: #8d8d8d;
+	--color-light-brown: #afafaf;
+	--color-medium-gray: #afafaf;
+	--color-light-grey: #cfd8dc;
+	--color-white: #fafafa;
+	--color-blue-grey: #eceff1;
+	--color-light-silver: #d7d7d7;
+	--color-lightening-gray: #efefef;
+	--color-pale-gray: #ededed;
+	--color-ash-gray: #e0e0e0;
+	--color-near-white: #f5f5f5;
+	--color-red: #d32f2f;
+	--color-light-red: #ff6659;
 }
 
 html {
@@ -15,10 +29,10 @@ html {
 }
 
 body {
-	min-width: 320px;
-	width: 100%;
 	height: 100%;
-	min-height: 100%;
+	-webkit-text-size-adjust: 100%;
+	scrollbar-gutter: stable;
+	min-width: 320px;
 	margin: 0;
 	background-color: var(--color-white);
 	color: var(--color-black);
@@ -27,26 +41,24 @@ body {
 	font-weight: 400;
 	font-size: 100%;
 	line-height: 1.5;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	cursor: default;
 }
 
-.main {
-	display: flex;
-	height: 100%;
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
 
 body.lock {
 	overflow: hidden;
 }
 
-*,
-*:before,
-*:after {
-	-webkit-box-sizing: inherit;
-	box-sizing: inherit;
+.main {
+	display: flex;
+	height: 100%;
 }
 
 .visually-hidden {
@@ -66,5 +78,5 @@ body.lock {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 15px 0 0;
 }
