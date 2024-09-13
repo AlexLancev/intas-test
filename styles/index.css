@@ -368,6 +368,10 @@
 	visibility: visible;
 }
 
+.question__answer:focus + .question__text::before {
+	border: 1px solid black;
+}
+
 .question__btn {
 	padding: 7px 18px;
 	margin: 15px;

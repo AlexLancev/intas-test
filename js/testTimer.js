@@ -26,6 +26,9 @@ export const startTimer = (seconds, test, testName) => {
         .padStart(2, "0")}:${secondsDisplay.toString().padStart(2, "0")}`;
 
       if (timeRemaining === 0) {
+        const scoreboard = document.querySelector('.scoreboard');
+        const scoreboardArr = scoreboard.querySelectorAll('.scoreboard__btn');
+        scoreboardArr.forEach((btn) => btn.setAttribute('disabled', ''));
         cancelAnimationFrame(timer);
         timer = null;
         showTestResults(test, testName);
